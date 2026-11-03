@@ -54,10 +54,9 @@ def ejecutar_pca(nombre: str = Field(description="Dataset autorizado: iris o win
 # nada. Estático (siempre lo mismo) o con plantilla (un parámetro en la URI).
 # ---------------------------------------------------------------------------
 
-# TODO 3 — resource estático "data://datasets"
-#   Decorador:   @mcp.resource("data://datasets", mime_type="application/json")
-#   Función:     listar_datasets() -> list[str]
-#   Cuerpo:      return pca_utils.listar_datasets()
+@mcp.resource("data://datasets", mime_type="application/json")
+def listar_datasets() -> list[str]:
+    return pca_utils.listar_datasets()
 
 
 # TODO 4 — resource con plantilla "data://datasets/{nombre}"
