@@ -1,0 +1,19 @@
+{
+  "comando": [
+    "/opt/homebrew/bin/npx",
+    "--yes",
+    "@modelcontextprotocol/inspector",
+    "--cli",
+    "/Users/yero/Downloads/Tarea_5_1/.venv/bin/python",
+    "/Users/yero/Downloads/Tarea_5_1/mcp_server.py",
+    "--method",
+    "tools/call",
+    "--tool-name",
+    "cargar_dataset",
+    "--tool-arg",
+    "nombre=iris"
+  ],
+  "codigo_salida": 0,
+  "stdout": "{\n  \"content\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"{\\n  \\\"nombre\\\": \\\"iris\\\",\\n  \\\"filas\\\": 150,\\n  \\\"columnas_numericas\\\": [\\n    \\\"sepal length (cm)\\\",\\n    \\\"sepal width (cm)\\\",\\n    \\\"petal length (cm)\\\",\\n    \\\"petal width (cm)\\\"\\n  ],\\n  \\\"columnas_categoricas\\\": [\\n    \\\"species\\\"\\n  ]\\n}\"\n    }\n  ],\n  \"isError\": false\n}\n",
+  "stderr": ""
+}

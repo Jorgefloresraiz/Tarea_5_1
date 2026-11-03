@@ -1,0 +1,20 @@
+{
+  "comando": [
+    "/opt/homebrew/bin/npx",
+    "--yes",
+    "@modelcontextprotocol/inspector",
+    "--cli",
+    "/Users/yero/Downloads/Tarea_5_1/.venv/bin/python",
+    "/Users/yero/Downloads/Tarea_5_1/mcp_server.py",
+    "--method",
+    "prompts/get",
+    "--prompt-name",
+    "interpretar_componentes",
+    "--prompt-args",
+    "nombre=iris",
+    "n_componentes=2"
+  ],
+  "codigo_salida": 0,
+  "stdout": "{\n  \"description\": \"Guía para interpretar las cargas y la varianza de PCA en su dominio.\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": {\n        \"type\": \"text\",\n        \"text\": \"Ejecuta ejecutar_pca sobre iris con 2 componentes.\\nIdentifica las 2–3 variables con mayor carga absoluta por componente y explica\\nqué patrón del dominio podría representar cada componente. Explica el signo\\nrelativo de las cargas: el signo global del componente puede invertirse sin\\ncambiar la solución. Distingue interpretación de causalidad.\\n¿Alcanzan 2 componentes según la varianza acumulada obtenida?\\nUsa los resultados reales de la herramienta; no inventes valores.\"\n      }\n    }\n  ]\n}\n",
+  "stderr": ""
+}

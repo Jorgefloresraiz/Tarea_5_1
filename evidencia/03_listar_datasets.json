@@ -1,0 +1,17 @@
+{
+  "comando": [
+    "/opt/homebrew/bin/npx",
+    "--yes",
+    "@modelcontextprotocol/inspector",
+    "--cli",
+    "/Users/yero/Downloads/Tarea_5_1/.venv/bin/python",
+    "/Users/yero/Downloads/Tarea_5_1/mcp_server.py",
+    "--method",
+    "resources/read",
+    "--uri",
+    "data://datasets"
+  ],
+  "codigo_salida": 0,
+  "stdout": "{\n  \"contents\": [\n    {\n      \"uri\": \"data://datasets\",\n      \"mimeType\": \"application/json\",\n      \"text\": \"[\\n  \\\"iris\\\",\\n  \\\"wine\\\"\\n]\"\n    }\n  ]\n}\n",
+  "stderr": ""
+}

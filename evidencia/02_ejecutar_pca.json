@@ -1,0 +1,20 @@
+{
+  "comando": [
+    "/opt/homebrew/bin/npx",
+    "--yes",
+    "@modelcontextprotocol/inspector",
+    "--cli",
+    "/Users/yero/Downloads/Tarea_5_1/.venv/bin/python",
+    "/Users/yero/Downloads/Tarea_5_1/mcp_server.py",
+    "--method",
+    "tools/call",
+    "--tool-name",
+    "ejecutar_pca",
+    "--tool-arg",
+    "nombre=iris",
+    "n_componentes=2"
+  ],
+  "codigo_salida": 0,
+  "stdout": "{\n  \"content\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"{\\n  \\\"dataset\\\": \\\"iris\\\",\\n  \\\"filas_usadas\\\": 150,\\n  \\\"variables_originales\\\": [\\n    \\\"sepal length (cm)\\\",\\n    \\\"sepal width (cm)\\\",\\n    \\\"petal length (cm)\\\",\\n    \\\"petal width (cm)\\\"\\n  ],\\n  \\\"n_componentes\\\": 2,\\n  \\\"varianza_explicada_por_componente\\\": [\\n    0.7296,\\n    0.2285\\n  ],\\n  \\\"varianza_acumulada\\\": 0.9581,\\n  \\\"cargas\\\": {\\n    \\\"PC1\\\": {\\n      \\\"sepal length (cm)\\\": 0.5211,\\n      \\\"sepal width (cm)\\\": -0.2693,\\n      \\\"petal length (cm)\\\": 0.5804,\\n      \\\"petal width (cm)\\\": 0.5649\\n    },\\n    \\\"PC2\\\": {\\n      \\\"sepal length (cm)\\\": 0.3774,\\n      \\\"sepal width (cm)\\\": 0.9233,\\n      \\\"petal length (cm)\\\": 0.0245,\\n      \\\"petal width (cm)\\\": 0.0669\\n    }\\n  }\\n}\"\n    }\n  ],\n  \"isError\": false\n}\n",
+  "stderr": ""
+}
