@@ -18,17 +18,21 @@ from sklearn.preprocessing import StandardScaler
 DATASETS_DIR = Path(__file__).parent / "datasets"
 
 
+DATASETS_AUTORIZADOS = ("iris", "wine")
+
+
 def listar_datasets() -> list[str]:
-    """Nombres de los datasets disponibles (sin la extensión .csv)."""
-    return sorted(p.stem for p in DATASETS_DIR.glob("*.csv"))
+    return [nombre for nombre in DATASETS_AUTORIZADOS
+            if (DATASETS_DIR / f"{nombre}.csv").is_file()
+            and (DATASETS_DIR / f"{nombre}.csv").resolve().parent == DATASETS_DIR.resolve()]
 
 
 def _ruta_dataset(nombre: str) -> Path:
-    ruta = DATASETS_DIR / f"{nombre}.csv"
-    if not ruta.exists():
-        raise ValueError(
-            f"No existe el dataset '{nombre}'. Disponibles: {listar_datasets()}"
-        )
+    if nombre not in listar_datasets():
+        raise ValueError("Dataset no autorizado. Use iris o wine dentro de datasets/.")
+    ruta = (DATASETS_DIR / f"{nombre}.csv").resolve()
+    if ruta.parent != DATASETS_DIR.resolve():
+        raise ValueError("No se permite acceder fuera de datasets/.")
     return ruta
 
 

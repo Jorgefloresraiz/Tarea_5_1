@@ -1,5 +1,5 @@
-mcp[cli]>=2.0
-anthropic>=1.0
-scikit-learn>=1.4
-pandas>=2.0
-python-dotenv>=1.0
+mcp[cli]==2.3.0
+scikit-learn==1.9.1
+pandas==2.3.3
+numpy>=2.0
+# El cliente conversacional opcional requiere anthropic y python-dotenv.

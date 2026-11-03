@@ -14,11 +14,8 @@ Prompt   -> una plantilla ya evaluada para una tarea recurrente: interpretar
             componentes principales en términos del dominio, no solo en
             términos de varianza.
 
-ESTADO: INCOMPLETO A PROPÓSITO.
-Cada bloque "# TODO" de abajo es una pieza que se escribe en vivo durante la
-clase, siguiendo el patrón de @mcp.tool / @mcp.resource / @mcp.prompt que ya
-viste en las diapositivas 10, 11 y 12. La lógica de negocio (pca_utils.py) ya
-está completa — aquí solo falta envolverla con el decorador correcto.
+ESTADO: cinco piezas completadas.
+Se conserva la lógica PCA del profesor y se exponen sus funciones por MCP.
 
 Para probar este archivo una vez completado, sin cliente ni CLI:
     mcp dev mcp_server.py
