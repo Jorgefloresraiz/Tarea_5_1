@@ -69,20 +69,17 @@ def ficha_dataset(nombre: str) -> dict:
 # dejar que cada usuario improvise su propia pregunta de interpretación.
 # ---------------------------------------------------------------------------
 
-# TODO 5 — prompt "interpretar_componentes"
-#   Decorador:   @mcp.prompt(name="interpretar_componentes", description="...")
-#   Función:     interpretar_componentes(nombre: str = Field(...),
-#                                         n_componentes: int = Field(...)
-#                                         ) -> list[UserMessage]
-#   Cuerpo:      construir un f-string "prompt" que le pida a Claude, sobre el
-#                resultado de ejecutar_pca:
-#                  1. identificar las 2-3 variables con mayor carga por componente
-#                  2. explicar qué patrón de dominio podría representar cada una
-#                  3. indicar si el signo de la carga tiene una lectura razonable
-#                y terminar preguntando si n_componentes alcanza según la
-#                varianza acumulada.
-#   Devolver:    return [UserMessage(prompt)]
-#   Ver el texto exacto sugerido en la diapositiva 12.
+@mcp.prompt(name="interpretar_componentes", description="Guía para interpretar las cargas y la varianza de PCA en su dominio.")
+def interpretar_componentes(nombre: str = Field(description="Dataset autorizado"), n_componentes: int = Field(ge=1, description="Número de componentes")) -> list[UserMessage]:
+    pca_utils.describir_dataset(nombre)
+    prompt = f"""Ejecuta ejecutar_pca sobre {nombre} con {n_componentes} componentes.
+Identifica las 2–3 variables con mayor carga absoluta por componente y explica
+qué patrón del dominio podría representar cada componente. Explica el signo
+relativo de las cargas: el signo global del componente puede invertirse sin
+cambiar la solución. Distingue interpretación de causalidad.
+¿Alcanzan {n_componentes} componentes según la varianza acumulada obtenida?
+Usa los resultados reales de la herramienta; no inventes valores."""
+    return [UserMessage(prompt)]
 
 
 if __name__ == "__main__":
