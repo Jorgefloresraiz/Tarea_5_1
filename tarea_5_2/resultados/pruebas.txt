@@ -1,0 +1,12 @@
+test_datasets_y_pca (test_permisos.Permisos.test_datasets_y_pca) ... ok
+test_rutas_no_autorizadas (test_permisos.Permisos.test_rutas_no_autorizadas) ... ok
+test_datos_degenerados (test_segmentacion.Segmentacion.test_datos_degenerados) ... ok
+test_equivalencia_pca_51 (test_segmentacion.Segmentacion.test_equivalencia_pca_51) ... ok
+test_k_invalido (test_segmentacion.Segmentacion.test_k_invalido) ... ok
+test_mcp_y_local_coinciden (test_segmentacion.Segmentacion.test_mcp_y_local_coinciden) ... ok
+test_resultados_y_perfiles (test_segmentacion.Segmentacion.test_resultados_y_perfiles) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.076s
+
+OK

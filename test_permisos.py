@@ -8,7 +8,7 @@ class Permisos(unittest.TestCase):
                 pca_utils.describir_dataset(nombre)
 
     def test_datasets_y_pca(self):
-        self.assertEqual(pca_utils.listar_datasets(), ['iris', 'wine'])
+        self.assertEqual(pca_utils.listar_datasets(), ['iris', 'wine', 'qa_simulado'])
         self.assertEqual(pca_utils.describir_dataset('wine')['filas'], 178)
         self.assertEqual(pca_utils.ejecutar_pca('iris', 2)['varianza_acumulada'], 0.9581)
 

@@ -1,5 +1,5 @@
 """
-Servidor MCP: dos tools, dos resources, un prompt.
+Servidor MCP: cuatro tools, dos resources, un prompt.
 
 Este es el archivo que el profesor completa en vivo durante la Clase 5.1,
 siguiendo el mismo patrón del curso de Anthropic "Introduction to Model
@@ -14,7 +14,7 @@ Prompt   -> una plantilla ya evaluada para una tarea recurrente: interpretar
             componentes principales en términos del dominio, no solo en
             términos de varianza.
 
-ESTADO: cinco piezas completadas.
+ESTADO: cinco piezas de 5.1 y dos tools adicionales de 5.2.
 Se conserva la lógica PCA del profesor y se exponen sus funciones por MCP.
 
 Para probar este archivo una vez completado, sin cliente ni CLI:
@@ -27,6 +27,7 @@ from mcp.server.mcpserver import MCPServer, UserMessage
 from pydantic import Field
 
 import pca_utils
+import kmeans_utils
 
 mcp = MCPServer("analisis-datos")
 
@@ -37,12 +38,12 @@ mcp = MCPServer("analisis-datos")
 # ---------------------------------------------------------------------------
 
 @mcp.tool(name="cargar_dataset", description="Describe filas y columnas del dataset. Usar antes de ejecutar_pca para conocer las variables numéricas.")
-def cargar_dataset(nombre: str = Field(description="Dataset autorizado: iris o wine")) -> dict:
+def cargar_dataset(nombre: str = Field(description="Nombre disponible en data://datasets")) -> dict:
     return pca_utils.describir_dataset(nombre)
 
 
 @mcp.tool(name="ejecutar_pca", description="Ejecuta PCA estandarizado y devuelve varianza explicada, varianza acumulada y cargas de las variables originales.")
-def ejecutar_pca(nombre: str = Field(description="Dataset autorizado: iris o wine"), n_componentes: int = Field(ge=1, description="Cantidad de componentes principales")) -> dict:
+def ejecutar_pca(nombre: str = Field(description="Nombre disponible en data://datasets"), n_componentes: int = Field(ge=1, description="Cantidad de componentes principales")) -> dict:
     return pca_utils.ejecutar_pca(nombre, n_componentes)
 
 
@@ -78,6 +79,14 @@ cambiar la solución. Distingue interpretación de causalidad.
 Usa los resultados reales de la herramienta; no inventes valores."""
     return [UserMessage(prompt)]
 
+
+@mcp.tool(name="segmentar_kmeans", description="Segmenta variables numéricas estandarizadas; devuelve etiquetas, tamaños, inercia, silueta y perfiles. No evalúa cumplimiento regulatorio.")
+def segmentar_kmeans(nombre: str = Field(description="Dataset autorizado"), k: int = Field(ge=2, description="Número de grupos")) -> dict:
+    return kmeans_utils.segmentar_kmeans(nombre, k)
+
+@mcp.tool(name="proyectar_pca", description="Reutiliza PCA y devuelve coordenadas 2D y varianza para visualizar los grupos.")
+def proyectar_pca(nombre: str = Field(description="Dataset autorizado")) -> dict:
+    return pca_utils.ejecutar_pca(nombre, 2, incluir_proyeccion=True)
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")

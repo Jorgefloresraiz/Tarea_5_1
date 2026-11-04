@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620"><rect width="1200" height="620" fill="white"/><g font-family="Arial,sans-serif" fill="#222">
+<text x="70" y="35" font-size="26">Selección de k en 300 casos simulados de QA</text>
+<path d="M 85 500.0 H 550" stroke="#ddd"/>
+<text x="20" y="507.0" font-size="16">600.00</text>
+<path d="M 85 422.0 H 550" stroke="#ddd"/>
+<text x="20" y="429.0" font-size="16">760.00</text>
+<path d="M 85 344.0 H 550" stroke="#ddd"/>
+<text x="20" y="351.0" font-size="16">920.00</text>
+<path d="M 85 266.0 H 550" stroke="#ddd"/>
+<text x="20" y="273.0" font-size="16">1080.00</text>
+<path d="M 85 188.0 H 550" stroke="#ddd"/>
+<text x="20" y="195.0" font-size="16">1240.00</text>
+<path d="M 85 110.0 H 550" stroke="#ddd"/>
+<text x="20" y="117.0" font-size="16">1400.00</text>
+<text x="73.0" y="526" font-size="16">2.0</text>
+<text x="150.5" y="526" font-size="16">3.0</text>
+<text x="228.0" y="526" font-size="16">4.0</text>
+<text x="305.5" y="526" font-size="16">5.0</text>
+<text x="383.0" y="526" font-size="16">6.0</text>
+<text x="460.5" y="526" font-size="16">7.0</text>
+<text x="538.0" y="526" font-size="16">8.0</text>
+<path d="M 85 110 V 500 H 550" fill="none" stroke="#333"/>
+<text x="272.5" y="560" font-size="20">Número de grupos k</text>
+<text x="85" y="90" font-size="20">Inercia</text>
+<polyline points="85.0,129.01208896748926 162.5,258.92636594798046 240.0,328.0192651422198 317.5,374.3565267067487 395.0,419.81917128455336 472.5,444.2114213832631 550.0,467.2340901351388" fill="none" stroke="#205b8f" stroke-width="3"/>
+<circle cx="85.0" cy="129.01208896748926" r="6" fill="#b24d16"/>
+<circle cx="162.5" cy="258.92636594798046" r="6" fill="#205b8f"/>
+<circle cx="240.0" cy="328.0192651422198" r="6" fill="#205b8f"/>
+<circle cx="317.5" cy="374.3565267067487" r="6" fill="#205b8f"/>
+<circle cx="395.0" cy="419.81917128455336" r="6" fill="#205b8f"/>
+<circle cx="472.5" cy="444.2114213832631" r="6" fill="#205b8f"/>
+<circle cx="550.0" cy="467.2340901351388" r="6" fill="#205b8f"/>
+<path d="M 705 500.0 H 1170" stroke="#ddd"/>
+<text x="640" y="507.0" font-size="16">0.00</text>
+<path d="M 705 422.0 H 1170" stroke="#ddd"/>
+<text x="640" y="429.0" font-size="16">0.08</text>
+<path d="M 705 344.0 H 1170" stroke="#ddd"/>
+<text x="640" y="351.0" font-size="16">0.16</text>
+<path d="M 705 266.0 H 1170" stroke="#ddd"/>
+<text x="640" y="273.0" font-size="16">0.24</text>
+<path d="M 705 188.0 H 1170" stroke="#ddd"/>
+<text x="640" y="195.0" font-size="16">0.32</text>
+<path d="M 705 110.0 H 1170" stroke="#ddd"/>
+<text x="640" y="117.0" font-size="16">0.40</text>
+<text x="693.0" y="526" font-size="16">2.0</text>
+<text x="770.5" y="526" font-size="16">3.0</text>
+<text x="848.0" y="526" font-size="16">4.0</text>
+<text x="925.5" y="526" font-size="16">5.0</text>
+<text x="1003.0" y="526" font-size="16">6.0</text>
+<text x="1080.5" y="526" font-size="16">7.0</text>
+<text x="1158.0" y="526" font-size="16">8.0</text>
+<path d="M 705 110 V 500 H 1170" fill="none" stroke="#333"/>
+<text x="892.5" y="560" font-size="20">Número de grupos k</text>
+<text x="705" y="90" font-size="20">Silueta media</text>
+<polyline points="705.0,152.8096992791003 782.5,270.05340099280545 860.0,297.6622145478777 937.5,294.7200830234194 1015.0,283.7086011191137 1092.5,318.2005943178077 1170.0,310.8373800439238" fill="none" stroke="#205b8f" stroke-width="3"/>
+<circle cx="705.0" cy="152.8096992791003" r="6" fill="#b24d16"/>
+<circle cx="782.5" cy="270.05340099280545" r="6" fill="#205b8f"/>
+<circle cx="860.0" cy="297.6622145478777" r="6" fill="#205b8f"/>
+<circle cx="937.5" cy="294.7200830234194" r="6" fill="#205b8f"/>
+<circle cx="1015.0" cy="283.7086011191137" r="6" fill="#205b8f"/>
+<circle cx="1092.5" cy="318.2005943178077" r="6" fill="#205b8f"/>
+<circle cx="1170.0" cy="310.8373800439238" r="6" fill="#205b8f"/>
+<text x="710" y="65" font-size="19">Máxima silueta: k = 2 (0.356)</text>
+</g></svg>

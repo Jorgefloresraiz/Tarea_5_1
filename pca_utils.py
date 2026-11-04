@@ -18,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 DATASETS_DIR = Path(__file__).parent / "datasets"
 
 
-DATASETS_AUTORIZADOS = ("iris", "wine")
+DATASETS_AUTORIZADOS = ("iris", "wine", "qa_simulado")
 
 
 def listar_datasets() -> list[str]:
@@ -29,7 +29,7 @@ def listar_datasets() -> list[str]:
 
 def _ruta_dataset(nombre: str) -> Path:
     if nombre not in listar_datasets():
-        raise ValueError("Dataset no autorizado. Use iris o wine dentro de datasets/.")
+        raise ValueError("Dataset no autorizado. Consulte data://datasets.")
     ruta = (DATASETS_DIR / f"{nombre}.csv").resolve()
     if ruta.parent != DATASETS_DIR.resolve():
         raise ValueError("No se permite acceder fuera de datasets/.")
@@ -53,7 +53,7 @@ def cargar_dataset(nombre: str) -> pd.DataFrame:
     return pd.read_csv(_ruta_dataset(nombre))
 
 
-def ejecutar_pca(nombre: str, n_componentes: int) -> dict:
+def ejecutar_pca(nombre: str, n_componentes: int, incluir_proyeccion: bool = False) -> dict:
     """
     Ejecuta PCA sobre las columnas numéricas de un dataset.
 
@@ -85,7 +85,7 @@ def ejecutar_pca(nombre: str, n_componentes: int) -> dict:
         columns=[f"PC{i + 1}" for i in range(n_componentes)],
     )
 
-    return {
+    resultado = {
         "dataset": nombre,
         "filas_usadas": len(X),
         "variables_originales": numericas,
@@ -97,3 +97,8 @@ def ejecutar_pca(nombre: str, n_componentes: int) -> dict:
             for col in cargas.columns
         },
     }
+
+    if incluir_proyeccion:
+        resultado["proyeccion"] = pca.transform(X_escalado).tolist()
+        resultado["filas"] = X.index.tolist()
+    return resultado
