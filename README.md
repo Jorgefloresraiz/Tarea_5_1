@@ -1,3 +1,7 @@
+# Capstone QA del Módulo 8
+
+Consultar [documentación del capstone](capstone/README.md), [auditoría](capstone/evidencia/AUDIT_REPORT.md) y [pull request revisado](https://github.com/Jorgefloresraiz/Tarea_5_1/pull/1). Los materiales 5.1/5.2 originales se conservan debajo.
+
 # Tareas 5.1 y 5.2 — Servidor MCP para PCA y segmentación
 
 Jorge Josué Flores González · MAI 540 · Atlantis University

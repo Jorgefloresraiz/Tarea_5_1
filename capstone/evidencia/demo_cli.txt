@@ -1,0 +1,9 @@
+DEMOSTRACIÓN CON DATOS SINTÉTICOS. No autoriza decisiones regulatorias ni liberación de lotes.
+ALERTA multiarea: dispersión relativa 23.6%, n=78; revisión humana reforzada. No indica criticidad.
+Perfiles descriptivos del lote recibido; no son métricas de validación.
+       dias_abiertos  dias_retraso_capa  recurrencias_12m  reaperturas  acciones_pendientes  areas_involucradas
+grupo                                                                                                          
+0             48.565              9.482             1.161        0.631                2.518               1.953
+1            121.378             40.244             1.067        0.533                6.200               3.378
+Acción: QA revisa capacidad y seguimiento de cada grupo; los números de grupo no son niveles de criticidad.
+Resultados: /private/tmp/capstone_demo

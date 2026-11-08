@@ -1,0 +1,7 @@
+{
+  "capstone/modelo.py": "2319f658de847261fac4af60c9b60c7c2184abdf78038570dd7c67cdab3fbc67",
+  "capstone/app.py": "3eaf76157dee34bab6d71e3229e702e41ed267040a4b7261b1d07cb145df1836",
+  "capstone/tests/test_modelo.py": "57a0e3c77d9cf644e0fb0ea68cca07ebdba458f9433267d82557fccfa443694c",
+  "datasets/qa_simulado.csv": "dedd47b97ded8b33e37c10a78b43bea20da0d22fa11c955a3d650fb47685176c",
+  "capstone/skill/SKILL.md": "003fafa4656e0fbcda7e40d670cd1ebdcc8680e403e9f61ac55c42e3c0e7c448"
+}
