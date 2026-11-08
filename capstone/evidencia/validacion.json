@@ -1650,7 +1650,8 @@
       1.0,
       1.0
     ],
-    "varianza_pca": 0.6564227338806827
+    "varianza_pca": 0.6564227338806827,
+    "ari_sin_retraso_capa": 0.25435658590193105
   },
   "subgrupos": [
     {
@@ -1670,20 +1671,20 @@
   ],
   "perfiles": {
     "0": {
-      "dias_abiertos": 48.565,
-      "dias_retraso_capa": 9.482,
-      "recurrencias_12m": 1.161,
-      "reaperturas": 0.631,
-      "acciones_pendientes": 2.518,
-      "areas_involucradas": 1.953
+      "dias_abiertos": 47.868,
+      "dias_retraso_capa": 9.41,
+      "recurrencias_12m": 1.18,
+      "reaperturas": 0.663,
+      "acciones_pendientes": 2.473,
+      "areas_involucradas": 1.941
     },
     "1": {
-      "dias_abiertos": 121.378,
-      "dias_retraso_capa": 40.244,
-      "recurrencias_12m": 1.067,
-      "reaperturas": 0.533,
-      "acciones_pendientes": 6.2,
-      "areas_involucradas": 3.378
+      "dias_abiertos": 124.571,
+      "dias_retraso_capa": 40.886,
+      "recurrencias_12m": 1.029,
+      "reaperturas": 0.543,
+      "acciones_pendientes": 6.543,
+      "areas_involucradas": 3.257
     }
   },
   "criterios": {

@@ -58,9 +58,12 @@ def evaluar(df):
     for seed in range(10):
         _,other=ajustar(x[desarrollo],k,seed);aris.append(float(adjusted_rand_score(lt,other.predict(zt))))
     pca=PCA(n_components=2).fit(s.transform(x[desarrollo]))
+    reducidas=[i for i,c in enumerate(COLS) if c!='dias_retraso_capa']
+    sr,mr=ajustar(x[desarrollo][:,reducidas],k)
+    sensibilidad=float(adjusted_rand_score(lt,mr.predict(sr.transform(x[prueba][:,reducidas]))))
     resumen={key:{'media':float(np.mean([f[key] for f in folds if f[key] is not None])),'de':float(np.std([f[key] for f in folds if f[key] is not None],ddof=1)),'n':sum(f[key] is not None for f in folds)} for key in ['silueta','silueta_base','distancia2','distancia2_base']}
-    prueba_result={'indices':prueba.tolist(),'k':k,'silueta':silueta(zt,lt),'silueta_base':silueta(zt,bt),'distancia2':float(np.mean(dt**2)),'distancia2_base':float(np.mean(db**2)),'ari_10_semillas':aris,'varianza_pca':float(pca.explained_variance_ratio_.sum())}
-    asignados=df.copy();asignados['grupo']=m.predict(s.transform(x))
+    prueba_result={'indices':prueba.tolist(),'k':k,'silueta':silueta(zt,lt),'silueta_base':silueta(zt,bt),'distancia2':float(np.mean(dt**2)),'distancia2_base':float(np.mean(db**2)),'ari_10_semillas':aris,'varianza_pca':float(pca.explained_variance_ratio_.sum()),'ari_sin_retraso_capa':sensibilidad}
+    asignados=df.iloc[desarrollo].copy();asignados['grupo']=m.predict(s.transform(x[desarrollo]))
     perfiles=asignados.groupby('grupo')[COLS].mean().round(3).to_dict('index')
     oof=pd.DataFrame(registros);global_d=float(oof.distancia2.mean());sub=[]
     for grupo,g in oof.groupby('categoria'):

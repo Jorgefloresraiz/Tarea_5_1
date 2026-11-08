@@ -54,3 +54,12 @@ def test_linea_base_y_modelo_mismos_casos():
     r=json.loads((Path(__file__).parents[1]/'evidencia/validacion.json').read_text())
     assert r['cv']['distancia2']['n']==r['cv']['distancia2_base']['n']==5
     assert all(np.isfinite(f['distancia2_base']) and np.isfinite(f['distancia2']) for f in r['folds'])
+
+def test_alerta_subgrupo_visible():
+    from app import advertencias
+    r={'subgrupos':[{'categoria':'multiarea','n':78,'brecha_relativa':.235,'alerta':True}]}
+    assert len(advertencias(r))==1 and 'No indica criticidad' in advertencias(r)[0]
+
+def test_no_inventa_alerta():
+    from app import advertencias
+    assert advertencias({'subgrupos':[{'alerta':False}]})==[]
