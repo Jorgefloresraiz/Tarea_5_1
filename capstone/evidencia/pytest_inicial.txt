@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /Users/yero/Downloads/Tarea_07/Tarea_7_2/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/yero/Downloads/Tarea_07/Capstone_QA
+collecting ... collected 10 items
+
+capstone/tests/test_modelo.py::test_datos_sinteticos_sin_nulos PASSED    [ 10%]
+capstone/tests/test_modelo.py::test_rechaza_negativos PASSED             [ 20%]
+capstone/tests/test_modelo.py::test_rechaza_nan PASSED                   [ 30%]
+capstone/tests/test_modelo.py::test_rechaza_casos_repetidos PASSED       [ 40%]
+capstone/tests/test_modelo.py::test_rechaza_columnas_ausentes PASSED     [ 50%]
+capstone/tests/test_modelo.py::test_escalado_solo_entrenamiento PASSED   [ 60%]
+capstone/tests/test_modelo.py::test_reproducibilidad PASSED              [ 70%]
+capstone/tests/test_modelo.py::test_metrica_indefinida_no_se_presenta_como_cero PASSED [ 80%]
+capstone/tests/test_modelo.py::test_particiones_evidencia PASSED         [ 90%]
+capstone/tests/test_modelo.py::test_linea_base_y_modelo_mismos_casos PASSED [100%]
+
+=============================== warnings summary ===============================
+capstone/tests/test_modelo.py::test_escalado_solo_entrenamiento
+  /Users/yero/Downloads/Tarea_07/Tarea_7_2/.venv/lib/python3.12/site-packages/joblib/externals/loky/backend/context.py:134: UserWarning: Could not find the number of physical cores for the following reason:
+  invalid literal for int() with base 10: ''
+  Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 10 passed, 1 warning in 2.06s =========================
