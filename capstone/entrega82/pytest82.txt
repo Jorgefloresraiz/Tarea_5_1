@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /Users/yero/Downloads/Tarea_07/Tarea_7_2/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/yero/Downloads/Tarea_07/Capstone_QA
+collecting ... collected 21 items
+
+capstone/tests/test_analisis82.py::test_categorias_preservan_casos_y_limites PASSED [  4%]
+capstone/tests/test_analisis82.py::test_estres_no_modifica_datos_ni_modelo PASSED [  9%]
+capstone/tests/test_modelo.py::test_datos_sinteticos_sin_nulos PASSED    [ 14%]
+capstone/tests/test_modelo.py::test_rechaza_negativos PASSED             [ 19%]
+capstone/tests/test_modelo.py::test_rechaza_nan PASSED                   [ 23%]
+capstone/tests/test_modelo.py::test_rechaza_casos_repetidos PASSED       [ 28%]
+capstone/tests/test_modelo.py::test_rechaza_columnas_ausentes PASSED     [ 33%]
+capstone/tests/test_modelo.py::test_escalado_solo_entrenamiento PASSED   [ 38%]
+capstone/tests/test_modelo.py::test_reproducibilidad PASSED              [ 42%]
+capstone/tests/test_modelo.py::test_metrica_indefinida_no_se_presenta_como_cero PASSED [ 47%]
+capstone/tests/test_modelo.py::test_particiones_evidencia PASSED         [ 52%]
+capstone/tests/test_modelo.py::test_linea_base_y_modelo_mismos_casos PASSED [ 57%]
+capstone/tests/test_modelo.py::test_alerta_subgrupo_visible PASSED       [ 61%]
+capstone/tests/test_modelo.py::test_no_inventa_alerta PASSED             [ 66%]
+test_permisos.py::Permisos::test_datasets_y_pca PASSED                   [ 71%]
+test_permisos.py::Permisos::test_rutas_no_autorizadas 
+test_permisos.py::Permisos::test_rutas_no_autorizadas PASSED             [ 76%]
+test_segmentacion.py::Segmentacion::test_datos_degenerados PASSED        [ 80%]
+test_segmentacion.py::Segmentacion::test_equivalencia_pca_51 PASSED      [ 85%]
+test_segmentacion.py::Segmentacion::test_k_invalido 
+test_segmentacion.py::Segmentacion::test_k_invalido PASSED               [ 90%]
+test_segmentacion.py::Segmentacion::test_mcp_y_local_coinciden PASSED    [ 95%]
+test_segmentacion.py::Segmentacion::test_resultados_y_perfiles PASSED    [100%]
+
+=============================== warnings summary ===============================
+capstone/tests/test_analisis82.py::test_estres_no_modifica_datos_ni_modelo
+  /Users/yero/Downloads/Tarea_07/Tarea_7_2/.venv/lib/python3.12/site-packages/joblib/externals/loky/backend/context.py:134: UserWarning: Could not find the number of physical cores for the following reason:
+  invalid literal for int() with base 10: ''
+  Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============== 21 passed, 1 warning, 8 subtests passed in 1.80s ===============

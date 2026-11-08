@@ -71,3 +71,18 @@ Autor: Jorge Josué Flores González. MAI 540. Noviembre de 2026.
 ### Sensibilidad observada
 
 Al retirar días de retraso CAPA, el ARI entre asignaciones finales baja a 0,2544. La estabilidad de 1,0 entre semillas no implica estabilidad frente a cambios de variables. Se conserva el modelo de seis variables definido previamente y se limita su uso a exploración; antes de uso operativo se necesita justificar la selección con QA y validar en nuevos datos.
+
+## Cierre de la Tarea 8.2
+
+La demostración es la CLI descrita arriba; no requiere un servidor público ni claves. Para repetir el análisis por categorías y la prueba de estrés, desde la raíz y con el entorno activo:
+
+```bash
+python capstone/analisis82.py
+python -m pytest -v
+```
+
+`capstone/entrega82/analisis.json` y `categorias.csv` contienen los resultados. Se usan predicciones OOF para áreas, antigüedad y recurrencias. Los cortes de 90 días y dos recurrencias son descriptivos, no regulatorios. El estrés añade 30 días abiertos y 30 días de retraso a los mismos 60 casos finales, con modelo y escala congelados. Cambian 25 asignaciones; la silueta pasa de 0,3263 a 0,1844. No constituye una cohorte futura real ni se utilizó para volver a seleccionar el modelo.
+
+La suite completa de cierre registra 21 pruebas y 8 subpruebas aprobadas. Las dos pruebas nuevas verifican conteos/límites de categorías y que el estrés no modifica entradas, centros ni escalador. La advertencia multiarea de la CLI procede de la validación de referencia, no de una evaluación automática del nuevo lote.
+
+El guion de grabación está en `capstone/entrega82/GUION_VIDEO.md`. Los documentos finales de la Parte 2 contienen informe de ocho páginas (seis de contenido, portada y referencias), presentación y bitácora. La aceptación por otra persona, el video y la presentación oral no se declaran realizados hasta disponer de evidencia. El enlace del video institucional debe incorporarse antes de comprimir la entrega completa.

@@ -1,0 +1,59 @@
+{
+  "secciones": [
+    [
+      "Problema, alcance y datos",
+      [
+        "La herramienta organiza casos abiertos de desviaciones y acciones correctivas y preventivas (CAPA) para apoyar la revisión de carga de trabajo de un responsable de calidad farmacéutica. Su valor consiste en mostrar perfiles de seguimiento similares, en lugar de tratar todos los expedientes como una lista homogénea. El escenario puede acompañar una iniciativa hipotética de remediación, pero no reproduce un Consent Decree real ni determina su cumplimiento.",
+        "Los 300 registros son datos sintéticos representativos de situaciones habituales del sector. Se generaron con semilla 540 y contienen seis variables: días abiertos, días de retraso CAPA, recurrencias en doce meses, reaperturas, acciones pendientes y áreas involucradas. No existen etiquetas de criticidad ni resultados operativos posteriores. Por tanto, el objetivo es explorar estructura, no predecir una infracción ni demostrar una reducción de retrasos.",
+        "El escenario se basa en la experiencia profesional del autor. Su trabajo como contratista independiente requiere acuerdos de confidencialidad (NDA); no se incluyen registros internos, nombres de empresas ni información propietaria del empleador. La representación sintética permite reproducir el experimento sin divulgar esos datos, aunque limita la generalización a procesos reales.",
+        "La solución continúa la propuesta de la Tarea 5.2. K-Means agrupa observaciones por proximidad a sus centros; esta geometría no equivale a una clasificación regulatoria (scikit-learn developers, s. f.-a). El criterio de éxito académico conserva silueta superior a 0,25 y estabilidad ARI mínima de 0,80, junto con una comparación fuera de muestra frente a una referencia sencilla."
+      ]
+    ],
+    [
+      "Método y validación frente a una referencia",
+      [
+        "Se reservaron 60 casos para evaluación final y 240 para desarrollo, con semilla 42. Sobre desarrollo se aplicaron cinco pliegues externos. En cada entrenamiento externo, tres pliegues internos seleccionaron k entre 2 y 8 por silueta media, resolviendo empates a favor del menor k. La media y la desviación estándar corresponden a los cinco resultados externos; no son intervalos de confianza.",
+        "StandardScaler se ajustó únicamente con las filas de entrenamiento de cada nivel. Así se evitó trasladar al ajuste información de validación. La separación también se mantuvo en PCA y en los perfiles de referencia. Este control atiende el riesgo de fuga por preparación previa a la partición (scikit-learn developers, s. f.-b).",
+        "La línea base tomó k observaciones aleatorias del entrenamiento como centros, con semilla 42. Se comparó usando el mismo k, escala y filas que K-Means. Es una referencia de una sola inicialización, no una evaluación exhaustiva de algoritmos alternativos. Se midieron silueta y distancia cuadrática al centro más cercano; una mayor silueta sugiere mejor separación y cohesión (Rousseeuw, 1987).",
+        "El modelo final conservó k = 2. La elección se hizo con desarrollo; la prueba reservada no se utilizó para volver a seleccionar variables o hiperparámetros. Los análisis posteriores de categorías y cambio de datos son descriptivos. La app reajusta de forma determinista con las filas de desarrollo registradas; por eso requiere conservar juntos el CSV, el código, las dependencias y el JSON de validación."
+      ]
+    ],
+    [
+      "Resultados y representación de los grupos",
+      [
+        "K-Means superó la referencia geométrica en validación cruzada y en los 60 casos finales. En la prueba final obtuvo silueta de 0,3263 frente a 0,1551, y distancia cuadrática media de 3,6112 frente a 5,5969. Se cumplieron los criterios académicos previstos, sin que ello demuestre eficacia operativa."
+      ]
+    ],
+    [
+      "Análisis por categorías y casos difíciles",
+      [
+        "La ausencia de etiquetas impide contar falsos positivos o negativos. Se operacionalizó la dificultad como distancia cuadrática al centro, calculada fuera del entrenamiento en 240 predicciones OOF. Una distancia alta identifica casos peor representados por su centro; no demuestra asignación incorrecta ni mayor gravedad. La tabla muestra tres cortes descriptivos; los mismos casos reaparecen entre ejes y no deben sumarse."
+      ]
+    ],
+    [
+      "Sensibilidad, degradación y restricciones",
+      [
+        "La estabilidad frente a diez semillas produjo ARI mínimo de 1,0, pero retirar días de retraso CAPA redujo el acuerdo a 0,2544. Esta diferencia revela dependencia de la selección de variables: repetir una inicialización estable no garantiza robustez ante cambios del proceso. Se mantuvo el modelo original y se documentó el resultado adverso.",
+        "La prueba de estrés posterior aumentó 30 días la antigüedad y el retraso CAPA de los mismos 60 casos reservados, manteniendo congelados el escalador y los centros. La distancia media subió de 3,6112 a 5,6949; la silueta bajó de 0,3263 a 0,1844 y 25 casos cambiaron de grupo. Es una perturbación artificial para ilustrar sensibilidad, no evidencia de degradación temporal ya observada ni una nueva evaluación independiente.",
+        "Para un piloto autorizado se propone revisar mensualmente distribución de variables, tamaños de grupos y distancia al centro con la misma versión. Un aumento sostenido de dispersión o un cambio de definiciones exigiría investigar calidad del dato y proceso antes de reentrenar. El umbral exploratorio del 20 % sirve para revisión, no como especificación validada. Las dependencias y cambios externos forman parte del mantenimiento de sistemas de aprendizaje automático (Sculley et al., 2015).",
+        "No debe utilizarse para liberar lotes, fijar criticidad, decidir sobre personas ni acreditar cumplimiento. Antes de uso real se requieren datos autorizados, validación independiente de QA y seguimiento de resultados operativos. Cada reentrenamiento debe conservar versión anterior, repetir pruebas y auditoría, y pasar revisión de cambios; una alerta no autoriza una actualización automática."
+      ]
+    ],
+    [
+      "Demostración, calidad del software y conclusión",
+      [
+        "La demostración elegida es una herramienta por línea de comandos, disponible en el repositorio del proyecto. El README contiene instalación con Python 3.12, dependencias fijadas y un ejemplo completo con el CSV sintético. La ejecución produce asignaciones.csv y perfiles.csv, presenta límites de uso y muestra la alerta de dispersión multiarea de la validación de referencia. Esa alerta no es una medición nueva del lote cargado.",
+        "La instalación y ejecución se reprodujeron automáticamente desde una copia limpia en la Parte 1. La suite de cierre aprobó 21 pruebas y 8 subpruebas. Incorpora comprobaciones de categorías y de que la perturbación no modifica los datos ni el modelo original. La auditoría corrigió perfiles de referencia que incluían filas reservadas, añadió una advertencia visible y documentó sensibilidad; el pull request 1 conserva la revisión y sus respuestas.",
+        "La revisión técnica fue asistida por Codex y no se atribuye a un compañero. A la fecha de este informe no se ha registrado la prueba de aceptación por otra persona, la grabación del video ni la presentación ante el grupo. La documentación y la presentación preparada no sustituyen esas actividades. La modalidad de presentación durante el incompleto debe acordarse con el docente.",
+        "El resultado es un prototipo reproducible que ayuda a discutir perfiles de seguimiento y explicita dónde representa peor los casos. Su principal límite es aprender del generador sintético. La siguiente evaluación debe contrastar los grupos con juicio profesional y datos autorizados, sin convertir una buena métrica geométrica en una promesa de calidad o cumplimiento."
+      ]
+    ]
+  ],
+  "referencias": [
+    "Rousseeuw, P. J. (1987). Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. <i>Journal of Computational and Applied Mathematics, 20</i>, 53–65. https://doi.org/10.1016/0377-0427(87)90125-7",
+    "scikit-learn developers. (s. f.-a). <i>Clustering</i>. https://scikit-learn.org/stable/modules/clustering.html",
+    "scikit-learn developers. (s. f.-b). <i>Common pitfalls and recommended practices</i>. https://scikit-learn.org/stable/common_pitfalls.html",
+    "scikit-learn developers. (s. f.-c). <i>Decomposing signals in components (matrix factorization problems)</i>. https://scikit-learn.org/stable/modules/decomposition.html",
+    "Sculley, D., Holt, G., Golovin, D., Davydov, E., Phillips, T., Ebner, D., Chaudhary, V., Young, M., Crespo, J.-F., &amp; Dennison, D. (2015). Hidden technical debt in machine learning systems. <i>Advances in Neural Information Processing Systems, 28</i>, 2503–2511. https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems"
+  ]
+}
